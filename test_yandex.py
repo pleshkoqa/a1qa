@@ -3,13 +3,14 @@ from selenium.webdriver.common.by import By
 
 
 link = "https://market.yandex.by/"
+
+
 def test_open_market():
     browser = webdriver.Chrome()
     browser.get(link)
     browser.maximize_window()
     button = browser.find_element(By.XPATH, '//div[@data-apiary-widget-name="@MarketNode/HeaderNav"]//a')
     button.click()
-
 
     window_before = browser.window_handles[0]
     window_after = browser.window_handles[1]
@@ -27,6 +28,7 @@ def test_open_market():
 def test_categories(browser):
     top_categories = browser.find_element_by_class_name("SyJTASPsrT _3mU1ofltUh _1fKg8X_Xiz")
     return top_categories
+
 
 def test_open_category(browser):
     window_main = browser.window_handles[0]
